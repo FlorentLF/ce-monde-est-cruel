@@ -23,17 +23,19 @@ class SavareenPlayer extends Player
             return parent::paperChoice();
         return parent::scissorsChoice();
     }
+    private function minduck(string $ennemy)
+    {
+        if ($ennemy == "scissors")
+            return parent::paperChoice();
+        if ($ennemy == "rock")
+            return parent::scissorsChoice();
+        return parent::rockChoice();
+    }
     public function getChoice()
     {
-        if ($this->result->getNbRound() <= 1)
-        {
-            if ($this->result->getLastChoiceFor($this->opponentSide) == 0){
-                return parent::rockChoice();
-            }
-            else{
-                return playopposite($this->result->getLastChoiceFor($this->opponentSide));
-            }
-        }
+        
+
         return playopposite($this->result->getLastChoiceFor($this->opponentSide));
+
     }
 };
