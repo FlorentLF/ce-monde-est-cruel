@@ -15,7 +15,7 @@ class SavareenPlayer extends Player
     protected $opponentSide;
     protected $result;
     
-    private function playopposite(string $ennemy)
+    private function playopposite($ennemy)
     {
         if ($ennemy == "scissors")
             return parent::rockChoice();
@@ -23,7 +23,7 @@ class SavareenPlayer extends Player
             return parent::paperChoice();
         return parent::scissorsChoice();
     }
-    private function minduck(string $ennemy)
+    private function minduck($ennemy)
     {
         if ($ennemy == "scissors")
             return parent::paperChoice();
@@ -33,9 +33,6 @@ class SavareenPlayer extends Player
     }
     public function getChoice()
     {
-        
-
         return playopposite($this->result->getLastChoiceFor($this->opponentSide));
-
     }
 };
