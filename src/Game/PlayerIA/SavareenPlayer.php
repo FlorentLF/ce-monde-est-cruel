@@ -8,7 +8,12 @@ use Hackathon\Game\Result;
  * Class SavareenPlayers
  * @package Hackathon\PlayerIA
  * @author FLORENT LE FRANCOIS
+ * 
+ * 
+ * Piéger les ennemis qui regardent seulement le dernier coup: j'alterne entre contrer leur dernier coup 
+ * et me mettre vulnérable à leur dernier coup, donc s'ils adaptent leur stratégie à mon dernier coup, ils perdent en boucle.
  */
+
 class SavareenPlayer extends Player
 {
     protected $mySide;
@@ -39,5 +44,4 @@ class SavareenPlayer extends Player
     }
     return parent::scissorsChoice();
 }
-
 };
