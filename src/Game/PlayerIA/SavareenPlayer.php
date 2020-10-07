@@ -18,12 +18,26 @@ class SavareenPlayer extends Player
     public function getChoice()
     {
         $ennemy = $this->result->getLastChoiceFor($this->opponentSide);
+        if ($this->result->getNbRound() % 2 == 1){
+            if ($ennemy == "scissors"){
+                return parent::paperChoice();
+            }
+            if ($ennemy == "rock"){
+                return parent::scissorsChoice();
+            }
+            return parent::rockChoice();
+    }
+    if ($this->result->getNbRound() % 2 == 0)
+    {
         if ($ennemy == "scissors"){
-            return parent::paperChoice();
+            return parent::rockChoice();
         }
         if ($ennemy == "rock"){
-            return parent::scissorsChoice();
+            return parent::paperChoice();
         }
-        return parent::rockChoice();
+        return parent::scissorsChoice();
     }
+    return parent::scissorsChoice();
+}
+
 };
